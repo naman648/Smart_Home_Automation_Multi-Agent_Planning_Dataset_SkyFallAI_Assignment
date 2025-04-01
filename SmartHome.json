@@ -1,0 +1,211 @@
+[
+    {
+        "task_one": "Wakeup Routine",
+        "plan": [
+          {
+            "step_id": 1,
+            "name": "Turn on Bedroom Lights",
+            "description": "Increase brightness gradually to simulate sunrise.",
+            "reason": "Helps the user wake up naturally.",
+            "agent": "LightingAgent",
+            "tool": "SmartLightingController",
+            "input": {"mode": "sunrise"},
+            "code": "lighting.set_mode('sunrise')",
+            "output": {"status": "brightened"},
+            "state": {"before": "dim", "after": "bright"}
+
+          },
+          {
+            "step_id": 2,
+            "name": "Start Coffee Machine",
+            "description": "Brew fresh coffee for the morning routine.",
+            "reason": "Ensures coffee is ready when the user wakes up.",
+            "agent": "ApplianceAgent",
+            "tool": "SmartCoffeeMaker",
+            "input": {"time": "07:00"},
+            "code": "coffee_maker.start(time='07:00')",
+            "output": {"status": "brewing"},
+            "state": {"before": "idle", "after": "active"}
+          },
+          {
+            "step_id": 3,
+            "name": "Adjust Room Temperature",
+            "description": "Set temperature to a comfortable level for waking up.",
+            "reason": "Ensures a pleasant start to the day.",
+            "agent": "ClimateAgent",
+            "tool": "Thermostat",
+            "input": {"temperature": 22},
+            "code": "thermostat.set_temperature(22)",
+            "output": {"status": "adjusted"},
+            "state": {"before": "cold", "after": "comfortable"}
+          }
+        ]
+      },
+      {
+        "task_two": "Movie Night Setup",
+        "plan": [
+          {
+            "step_id": 1,
+            "name": "Dim the Lights",
+            "description": "Reduce brightness for a cinematic atmosphere.",
+            "reason": "Enhances the movie-watching experience.",
+            "agent": "LightingAgent",
+            "tool": "SmartLightingController",
+            "input": {"mode": "dim"},
+            "code": "lighting.set_mode('dim')",
+            "output": {"status": "adjusted"},
+            "state": {"before": "bright", "after": "dimmed"}
+          },
+          {
+            "step_id": 2,
+            "name": "Turn on Entertainment System",
+            "description": "Power on the TV and sound system.",
+            "reason": "Prepares the home theater for the movie.",
+            "agent": "ApplianceAgent",
+            "tool": "SmartEntertainmentHub",
+            "input": {"devices": ["TV", "Speakers"]},
+            "code": "entertainment_hub.power_on(['TV', 'Speakers'])",
+            "output": {"status": "ready"},
+            "state": {"before": "off", "after": "on"}
+          },
+          {
+            "step_id": 3,
+            "name": "Adjust Climate Settings",
+            "description": "Set room temperature to a cozy level.",
+            "reason": "Ensures comfort during the movie.",
+            "agent": "ClimateAgent",
+            "tool": "Thermostat",
+            "input": {"temperature": 21},
+            "code": "thermostat.set_temperature(21)",
+            "output": {"status": "adjusted"},
+            "state": {"before": "default", "after": "cozy"}
+          }
+        ]
+      },
+      {
+        "task_three": "Workout Preparation",
+        "plan": [
+          {
+            "step_id": 1,
+            "name": "Increase Room Brightness",
+            "description": "Brighten the room for an energized atmosphere.",
+            "reason": "Helps maintain focus and motivation during workouts.",
+            "agent": "LightingAgent",
+            "tool": "SmartLightingController",
+            "input": {"mode": "bright"},
+            "code": "lighting.set_mode('bright')",
+            "output": {"status": "on"},
+            "state": {"before": "dim", "after": "bright"}
+          },
+          {
+            "step_id": 2,
+            "name": "Set Music Playlist",
+            "description": "Play an upbeat playlist for workout motivation.",
+            "reason": "Enhances energy and engagement during exercise.",
+            "agent": "ApplianceAgent",
+            "tool": "SmartSpeaker",
+            "input": {"playlist": "Workout Mix"},
+            "code": "speaker.play('Workout Mix')",
+            "output": {"status": "playing"},
+            "state": {"before": "silent", "after": "music_playing"}
+          },
+          {
+            "step_id": 3,
+            "name": "Adjust Room Temperature",
+            "description": "Set an optimal workout temperature.",
+            "reason": "Prevents overheating and enhances comfort.",
+            "agent": "ClimateAgent",
+            "tool": "Thermostat",
+            "input": {"temperature": 22},
+            "code": "thermostat.set_temperature(22)",
+            "output": {"status": "adjusted"},
+            "state": {"before": "default", "after": "optimal_workout_temperature"}
+          }
+        ]
+      },
+      {
+        "task_four": "Grocery Storage",
+        "plan": [
+          {
+            "step_id": 1,
+            "name": "Adjust Refrigerator Temperature",
+            "description": "Set fridge to optimal storage temperature.",
+            "reason": "Preserves food quality and freshness.",
+            "agent": "ApplianceAgent",
+            "tool": "SmartFridgeController",
+            "input": {"temperature": "optimal"},
+            "code": "fridge.set_temperature('optimal')",
+            "output": {"status": "set"},
+            "state": {"before": "default", "after": "optimal"}
+          },
+          {
+            "step_id": 2,
+            "name": "Turn on Kitchen Lights",
+            "description": "Ensure the kitchen is well-lit for safe storage.",
+            "reason": "Helps users see clearly while organizing groceries.",
+            "agent": "LightingAgent",
+            "tool": "SmartLightingController",
+            "input": {"mode": "on"},
+            "code": "lighting.set_mode('on')",
+            "output": {"status": "illuminated"},
+            "state": {"before": "off", "after": "on"}
+          },
+          {
+            "step_id": 3,
+            "name": "Secure Pantry Door",
+            "description": "Ensure the pantry is closed properly after storage.",
+            "reason": "Keeps food safe from pests and maintains cleanliness.",
+            "agent": "SecurityAgent",
+            "tool": "SmartLockSystem",
+            "input": {"door": "pantry"},
+            "code": "lock_system.lock('pantry')",
+            "output": {"status": "locked"},
+            "state": {"before": "unlocked", "after": "locked"}
+          }
+        ]
+      },
+      {
+        "task_five": "Leave Home Routine",
+        "plan": [
+          {
+            "step_id": 1,
+            "name": "Turn Off Lights",
+            "description": "Shut down all unnecessary lighting.",
+            "reason": "Saves energy while no one is home.",
+            "agent": "LightingAgent",
+            "tool": "SmartLightingController",
+            "input": {"mode": "off"},
+            "code": "lighting.set_mode('off')",
+            "output": {"status": "off"},
+            "state": {"before": "on", "after": "off"}
+          },
+          {
+            "step_id": 2,
+            "name": "Adjust Thermostat",
+            "description": "Lower heating or cooling to save energy.",
+            "reason": "Prevents unnecessary energy consumption.",
+            "agent": "ClimateAgent",
+            "tool": "Thermostat",
+            "input": {"mode": "eco"},
+            "code": "thermostat.set_mode('eco')",
+            "output": {"status": "adjusted"},
+            "state": {"before": "active", "after": "eco_mode"}
+          },
+          {
+            "step_id": 3,
+            "name": "Arm Security System",
+            "description": "Activate home security alarms and locks.",
+            "reason": "Ensures house security when no one is home.",
+            "agent": "SecurityAgent",
+            "tool": "SmartSecurityHub",
+            "input": {"mode": "armed"},
+            "code": "security_system.arm()",
+            "output": {"status": "secured"},
+            "state": {"before": "disarmed", "after": "armed"}
+          }
+        ]
+      }
+    ]
+    
+    
+  
